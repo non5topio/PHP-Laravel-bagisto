@@ -1,22 +1,22 @@
 {
     "enabled": "true",
     "increase-coverage": {
-      "project-name": "php-symfony-ecommerce",
+      "project-name": "php-laravel-bagisto",
       "target-branches": [
-        "master"
+        "main"
       ],
       "test-env-docker-stage": "test",
       "build-test-env-docker-stage-script-path": "tool/build-test-env-docker-stage.sh",
       "test-files-folders": [
-        "tests/Utils/HelperTest.php"
+        "packages/Webkul/Admin/tests/Feature/Reporting/CartReportTest.php"
       ],
       "source-test-file-paths": [
         {
-          "source-file-path": "src/Utils/Helper.php",
-          "test-file-path": "tests/Utils/HelperTest.php"
+          "source-file-path": "packages/Webkul/Admin/src/Helpers/Reporting/Cart.php",
+          "test-file-path": "packages/Webkul/Admin/tests/Feature/Reporting/CartReportTest.php"
         }
       ],
-      "test-command": "phpunit -c phpunit-simple.xml --coverage-text --colors=always",
+      "test-command": "php -d pcov.enabled=1 vendor/bin/pest packages/Webkul/Admin/tests/Feature/Reporting/CartReportTest.php --coverage --coverage-text --coverage-filter=packages/Webkul/Admin/src/Helpers/Reporting/",
       "coverage-type": "clover",
       "code-coverage-report-path": "coverage/clover.xml",
       "desired-coverage": 100,
