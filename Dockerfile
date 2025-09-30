@@ -45,6 +45,10 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
+# Copy and set permissions for test runner script
+COPY run-tests.sh /app/run-tests.sh
+RUN chmod +x /app/run-tests.sh
+
 # Create .env file from example for testing
 RUN cp .env.example .env
 
@@ -60,9 +64,9 @@ RUN composer install --optimize-autoloader --no-interaction --no-scripts
 RUN php artisan key:generate --force
 
 # Create necessary directories for coverage reports
-RUN mkdir -p /app/coverage
+RUN mkdir -p /app/coverage /app/database
 
-# Set environment variables
+# Set environment variables for testing
 ENV APP_ENV=testing
 ENV APP_KEY=base64:dummy-key-for-testing
 ENV DB_CONNECTION=sqlite
@@ -74,5 +78,5 @@ RUN pecl install pcov && docker-php-ext-enable pcov
 # Build frontend assets
 RUN npm run build
 
-# Run tests with coverage report
-CMD ["bash", "-c", "echo 'PHP VERSION:' && php --version && echo 'RUNNING TESTS WITH COVERAGE...' && php -d pcov.enabled=1 vendor/bin/phpunit --coverage-html=coverage/html --coverage-clover=coverage/clover.xml --coverage-text && echo 'Test coverage reports generated in /app/coverage/'"]
+# Default command runs the test runner script
+CMD ["/app/run-tests.sh"]
