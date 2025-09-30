@@ -1,0 +1,26 @@
+{
+    "enabled": "true",
+    "increase-coverage": {
+      "project-name": "php-symfony-ecommerce",
+      "target-branches": [
+        "master"
+      ],
+      "test-env-docker-stage": "test",
+      "build-test-env-docker-stage-script-path": "tool/build-test-env-docker-stage.sh",
+      "test-files-folders": [
+        "tests/Utils/HelperTest.php"
+      ],
+      "source-test-file-paths": [
+        {
+          "source-file-path": "src/Utils/Helper.php",
+          "test-file-path": "tests/Utils/HelperTest.php"
+        }
+      ],
+      "test-command": "phpunit -c phpunit-simple.xml --coverage-text --colors=always",
+      "coverage-type": "clover",
+      "code-coverage-report-path": "coverage/clover.xml",
+      "desired-coverage": 100,
+      "max-iterations": 1,
+      "max-number-of-test-cases": 6
+      }
+  }
