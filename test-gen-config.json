@@ -26,7 +26,7 @@
           "test-file-path": "packages/Webkul/Admin/tests/Feature/Reporting/ProductReportTest.php"
         }
       ],
-      "test-command": "php -d pcov.enabled=1 vendor/bin/pest packages/Webkul/Admin/tests/Feature/Reporting/SaleReportTest.php packages/Webkul/Category/tests/Feature/CategoryServiceTest.php packages/Webkul/Product/tests/Feature/ProductRepositoryTest.php --coverage --coverage-text --coverage-filter=packages/Webkul/Admin/src/Helpers/Reporting/Sale.php --coverage-filter=packages/Webkul/Category/src/Services/CategoryService.php --coverage-filter=packages/Webkul/Product/src/Repositories/ProductRepository.php",
+      "test-command": "php -d pcov.enabled=1 vendor/bin/pest packages/Webkul/Admin/tests/Feature/Reporting/SaleReportTest.php packages/Webkul/Admin/tests/Feature/Reporting/CustomerReportTest.php packages/Webkul/Admin/tests/Feature/Reporting/ProductReportTest.php --coverage --coverage-text --coverage-filter=packages/Webkul/Admin/src/Helpers/Reporting/Sale.php --coverage-filter=packages/Webkul/Admin/src/Helpers/Reporting/Customer.php --coverage-filter=packages/Webkul/Admin/src/Helpers/Reporting/Product.php",
       "coverage-type": "clover",
       "code-coverage-report-path": "coverage/clover.xml",
       "desired-coverage": 100,
