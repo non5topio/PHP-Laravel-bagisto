@@ -1,0 +1,38 @@
+{
+  "enabled": "true",
+  "increase-coverage": {
+    "project-name": "php-laravel-bagisto",
+    "target-branches": [
+      "main"
+    ],
+    "test-env-docker-stage": "test",
+    "build-test-env-docker-stage-script-path": "tool/build-test-env-docker-stage.sh",
+    "test-files-folders": [
+      "packages/Webkul/Admin/tests/Feature/Reporting/SaleReportTest.php",
+      "packages/Webkul/Admin/tests/Feature/Reporting/CustomerReportTest.php",
+      "packages/Webkul/Admin/tests/Feature/Reporting/ProductReportTest.php"
+    ],
+    "source-test-file-paths": [
+      {
+        "source-file-path": "packages/Webkul/Admin/src/Helpers/Reporting/Sale.php",
+        "test-file-path": "packages/Webkul/Admin/tests/Feature/Reporting/SaleReportTest.php",
+        "test-command": "php -d pcov.enabled=1 vendor/bin/pest packages/Webkul/Admin/tests/Feature/Reporting/SaleReportTest.php  --coverage --coverage-text --coverage-filter=packages/Webkul/Admin/src/Helpers/Reporting/Sale.php "
+      },
+      {
+        "source-file-path": "packages/Webkul/Admin/src/Helpers/Reporting/Customer.php",
+        "test-file-path": "packages/Webkul/Admin/tests/Feature/Reporting/CustomerReportTest.php",
+        "test-command": "php -d pcov.enabled=1 vendor/bin/pest  packages/Webkul/Admin/tests/Feature/Reporting/CustomerReportTest.php --coverage --coverage-text  --coverage-filter=packages/Webkul/Admin/src/Helpers/Reporting/Customer.php"
+      },
+      {
+        "source-file-path": "packages/Webkul/Admin/src/Helpers/Reporting/Product.php",
+        "test-file-path": "packages/Webkul/Admin/tests/Feature/Reporting/ProductReportTest.php",
+        "test-command": "php -d pcov.enabled=1 vendor/bin/pest  packages/Webkul/Admin/tests/Feature/Reporting/ProductReportTest.php --coverage --coverage-text  --coverage-filter=packages/Webkul/Admin/src/Helpers/Reporting/Product.php"
+      }
+    ],
+    "coverage-type": "clover",
+    "code-coverage-report-path": "coverage/clover.xml",
+    "desired-coverage": 100,
+    "max-iterations": 1,
+    "max-number-of-test-cases": 6
+  }
+}
