@@ -32,7 +32,7 @@
     "coverage-type": "clover",
     "code-coverage-report-path": "coverage/clover.xml",
     "desired-coverage": 100,
-    "max-iterations": 2,
+    "max-iterations": 3,
     "max-number-of-test-cases": 6
   }
 }
