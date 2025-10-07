@@ -15,7 +15,14 @@ class AttributeFamilyTableSeeder extends Seeder
      */
     public function run($parameters = [])
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        // Disable foreign key checks in a database-agnostic way
+        $driver = DB::getDriverName();
+        
+        if ($driver === 'mysql') {
+            DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        } elseif ($driver === 'sqlite') {
+            DB::statement('PRAGMA foreign_keys = OFF;');
+        }
 
         DB::table('attribute_families')->delete();
 
