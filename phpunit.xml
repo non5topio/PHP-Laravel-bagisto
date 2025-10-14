@@ -30,10 +30,25 @@
     <source>
         <include>
             <directory>app</directory>
-
             <directory>packages</directory>
         </include>
+        <exclude>
+            <directory>vendor</directory>
+            <directory>node_modules</directory>
+            <directory>storage</directory>
+            <directory>bootstrap/cache</directory>
+            <file>packages/Webkul/*/src/Config</file>
+            <file>packages/Webkul/*/src/Providers</file>
+        </exclude>
     </source>
+
+    <coverage>
+        <report>
+            <html outputDirectory="coverage/html"/>
+            <clover outputFile="coverage/clover.xml"/>
+            <text outputFile="coverage/coverage.txt"/>
+        </report>
+    </coverage>
 
     <php>
         <env name="APP_ENV" value="testing"/>
